@@ -1,5 +1,5 @@
 # ZK Elo
 
-A simple Rust program that proves that two players are fairly matched given their ELO rating without revealing what rating they are. 
+A simple Rust cli tool that proves that two players are fairly matched given their ELO rating without revealing what rating they are. 
 
 
