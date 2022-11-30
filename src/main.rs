@@ -1,6 +1,6 @@
+use elo::Pairing;
 use secrets::SecretVec;
 use std::env;
-use elo::Pairing; 
 /*
 
 I assume that players within a range of +-100 of each other is fair rating.
@@ -13,5 +13,6 @@ fn main() {
 
     let elo_b = SecretVec::from(unsafe { env::args().nth(2).unwrap().as_bytes_mut() });
 
-    println!("{:?}, {:?}", elo_a, elo_b)
+    let p = Pairing { elo_a, elo_b };
+    println!("{:?}, {:?}", &p.elo_a, &p.elo_b);
 }
