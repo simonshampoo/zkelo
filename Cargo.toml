@@ -8,4 +8,6 @@ edition = "2021"
 [dependencies]
 secrets = "1.2.0"
 bulletproofs = "4.0.0"
-curve25519-dalek = "^0.18":w
+curve25519-dalek = "3.2.1"
+merlin = "3.0.0"
+rand = "0.8.5"

@@ -1,10 +1,11 @@
-use bulletproofs::{BulletproofGens, PedersenGens, RangeProof};
+use bulletproofs::{BulletproofGens, PedersenGens, ProofError, RangeProof};
+use curve25519_dalek::ristretto::CompressedRistretto;
 use curve25519_dalek::scalar::Scalar;
 use merlin::Transcript;
 use rand::thread_rng;
 use std::error::Error;
 
-pub fn prove() -> Result<(RangeProof, CompressedRisstreto), Error> {
+pub fn prove() -> Result<(), ProofError> {
     let pc_gens = PedersenGens::default();
 
     // Generators for Bulletproofs, valid for proofs up to bitsize 64
@@ -34,13 +35,11 @@ pub fn prove() -> Result<(RangeProof, CompressedRisstreto), Error> {
 
     // Verification requires a transcript with identical initial state:
     let mut verifier_transcript = Transcript::new(b"doctest example");
-    assert!(proof
-        .verify_multiple(
-            &bp_gens,
-            &pc_gens,
-            &mut verifier_transcript,
-            &commitments,
-            32
-        )
-        .is_ok());
+    proof.verify_multiple(
+        &bp_gens,
+        &pc_gens,
+        &mut verifier_transcript,
+        &commitments,
+        32,
+    )
 }
