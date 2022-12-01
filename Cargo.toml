@@ -7,3 +7,5 @@ edition = "2021"
 
 [dependencies]
 secrets = "1.2.0"
+bulletproofs = "4.0.0"
+curve25519-dalek = "^0.18":w
