@@ -4,10 +4,10 @@ pub struct Pairing {
     pub elo_b: SecretVec<u8>,
 }
 impl Pairing {
-    pub fn new(elo_a: SecretVec<u8>, elo_b: SecretVec<u8>) -> Result<Self, &'static str> {
-        Ok(Pairing { elo_a, elo_b })
+    pub fn new(elo_a: SecretVec<u8>, elo_b: SecretVec<u8>) -> Pairing {
+        Pairing { elo_a, elo_b }
     }
-    pub fn is_valid_pairing() -> bool {
+    pub fn is_fair_pairing() -> bool {
         todo!();
     }
 }
