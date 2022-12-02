@@ -28,6 +28,8 @@ fn main() {
 
     let elo_b = SecretVec::from(unsafe { env::args().nth(2).unwrap().as_bytes_mut() });
 
+    let elos = SecretVec::from([elo_a, elo_b]);
+
     let p = Pairing { elo_a, elo_b };
     println!("{:?}, {:?}", &p.elo_a, &p.elo_b);
 }

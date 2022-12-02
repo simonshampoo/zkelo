@@ -16,7 +16,7 @@ pub fn prove() -> Result<(), ProofError> {
     let secrets = [4242344947u64, 3718732727u64, 2255562556u64, 2526146994u64];
 
     // The API takes blinding factors for the commitments.
-    let blindings: Vec<_> = (0..4).map(|_| Scalar::random(&mut thread_rng())).collect();
+    let blindings: Vec<Scalar> = (0..4).map(|_| Scalar::random(&mut thread_rng())).collect();
 
     // The proof can be chained to an existing transcript.
     // Here we create a transcript with a doctest domain separator.
